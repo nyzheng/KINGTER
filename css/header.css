@@ -1,0 +1,410 @@
+@media screen and (max-width: 767px) {
+    .pc {
+        display: none;
+    }
+
+    #menu-control {
+        display: none;
+    }
+
+    #menu-control:checked ~ header > nav > .menu-container {
+        right: 0;
+    }
+
+    .expand {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .expand::after {
+        content: '';
+        background-color: #ffffff;
+        width: 10px;
+        height: 10px;
+        display: block;
+        clip-path: polygon(50% 25%, 0 75%, 100% 75%);
+        transition: all 0.5s;
+    }
+
+    .close {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .close::after {
+        content: '';
+        background-color: #ffffff;
+        width: 10px;
+        height: 10px;
+        display: block;
+        clip-path: polygon(50% 75%, 0 25%, 100% 25%);
+        transition: all 0.5s;
+    }
+
+    header {
+        display: flex;
+        width: 100%;
+        height: 100px;
+        align-items: center;
+        justify-content: center;
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        background-color: #ffffff;
+    }
+
+    header #MenuControl {
+        position: fixed;
+        right: 60px;
+        top: 50px;
+        transform: translateY(-50%);
+        z-index: 10;
+        cursor: pointer; /* Added for better UX */
+    }
+
+    header #MenuControl span {
+        width: 40px;
+        height: 4px;
+        background-color: #000000;
+        display: block;
+        transition: background-color 0.5s; /* 加入過渡效果 */
+    }
+
+    /* 新增的 CSS 類 */
+    header.active #MenuControl span {
+        background-color: #000000; /* 選單打開時的背景顏色 */
+    }
+
+    header #MenuControl span + span {
+        margin-top: 7px;
+    }
+
+    header nav {
+        position: relative;
+        top: 20px;
+    }
+
+    header nav .logo {
+        width: 100px;
+        margin: 0 0 30px 0;
+    }
+
+    header nav .logo img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    header nav {
+        display: flex;
+        width: 100%;
+        justify-content: space-between; /* Adjusted for better alignment */
+        align-items: center;
+        padding: 0 40px; /* Adjusted padding */
+    }
+
+    header .contact {
+        color: #ffffff;
+        font-family: 'Noto Sans TC', sans-serif;
+        font-size: 22px;
+        letter-spacing: 0.2em;
+    }
+
+    header nav > .menu-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 6;
+        background-color: #ffffff;
+        height: 100%;
+        padding-top: 100px;
+        opacity: 0; /* 初始狀態為透明 */
+        transition: opacity 0.5s ease-in-out; /* 使用過渡效果來實現漸變 */
+        visibility: hidden; /* 隱藏選單以防止它在動畫之前可見 */
+        height: 700px;
+    }
+    #menu-control:checked ~ header .menu-container {
+        opacity: 1; /* 選單打開時設置為不透明 */
+        visibility: visible; /* 使選單可見 */
+    }
+
+    header nav > .menu-container > ul {
+        list-style: none;
+        padding: 70px 0px 20px 40px;
+        margin: 0; /* Reset margin */
+        width: 100%;
+        overflow: auto;
+    }
+
+    header nav > .menu-container > ul > li {
+        width: 100%;
+        position: relative; /* Ensure submenu appears relative to the parent */
+        text-align: left;
+    }
+
+    header nav > .menu-container > ul > li > a {
+        width: 100%;
+        text-decoration: none;
+        color: #000000;
+        padding: 20px 0;
+        display: block;
+    }
+
+    header nav > .menu-container > ul > li > a > span {
+        font-family: 'Noto Sans TC';
+        font-size: 20px !important;
+    }
+
+    header .menu-container .menu header .menu-container .menu li a .img-box {
+        width: 20px; /* Adjusted width */
+        margin-right: 10px; /* Adjusted margin for spacing */
+    }
+
+    header > .menu-container > .menu li a .img-box img {
+        width: 100%;
+    }
+
+    .pc-submenu {
+        display: none;
+        position: static; /* Position relative to parent, and static for better animation handling */
+        background-color: #143159; /* Match the background color */
+        width: 100%;
+        z-index: 7;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+    }
+
+    .pc-submenu li {
+        width: 100%;
+    }
+
+    .pc-submenu li a {
+        padding: 10px 20px;
+        display: block;
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .menu-container ul.menu li.open .pc-submenu {
+        display: block;
+        max-height: 500px; /* 設置您希望的最大高度 */
+        opacity: 1;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .mobile {
+        display: none;
+    }
+
+    #menu-control {
+        display: none;
+    }
+
+    #menu-control:checked ~ header > nav > .menu-container {
+        right: 0;
+    }
+
+    .expand {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .expand::after {
+        content: '';
+        background-color: #ffffff;
+        width: 10px;
+        height: 10px;
+        display: block;
+        clip-path: polygon(50% 25%, 0 75%, 100% 75%);
+        transition: all 0.5s;
+    }
+
+    .close {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .close::after {
+        content: '';
+        background-color: #ffffff;
+        width: 10px;
+        height: 10px;
+        display: block;
+        clip-path: polygon(50% 75%, 0 25%, 100% 25%);
+        transition: all 0.5s;
+    }
+
+    header {
+        display: flex;
+        width: 100%;
+        height: 100px;
+        align-items: center;
+        justify-content: center;
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        z-index: 3;
+    }
+
+    header #MenuControl {
+        position: fixed;
+        right: 60px;
+        top: 60px;
+        transform: translateY(-50%);
+        z-index: 10;
+        cursor: pointer; /* Added for better UX */
+    }
+
+    header #MenuControl span {
+        width: 40px;
+        height: 4px;
+        background-color: #ffffff;
+        display: block;
+        transition: background-color 0.5s; /* 加入過渡效果 */
+    }
+
+    /* 新增的 CSS 類 */
+    header.active #MenuControl span {
+        background-color: #000000; /* 選單打開時的背景顏色 */
+    }
+
+    header #MenuControl span + span {
+        margin-top: 7px;
+    }
+
+    header nav {
+        position: relative;
+        top: 20px;
+    }
+
+    header nav .logo {
+        width: 136px;
+        position: absolute;
+        transform: translateX(-50%);
+        left: 50%;
+    }
+
+    header nav .logo img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    header nav {
+        display: flex;
+        width: 100%;
+        justify-content: space-between; /* Adjusted for better alignment */
+        align-items: center;
+        padding: 0 40px; /* Adjusted padding */
+    }
+
+    header .contact {
+        color: #ffffff;
+        font-family: 'Noto Sans TC', sans-serif;
+        font-size: 22px;
+        letter-spacing: 0.2em;
+    }
+
+    header nav > .menu-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 30vw;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 6;
+        background-color: #ffffff;
+        height: 100%;
+        padding-top: 100px;
+        opacity: 0; /* 初始狀態為透明 */
+        transition: opacity 0.5s ease-in-out; /* 使用過渡效果來實現漸變 */
+        visibility: hidden; /* 隱藏選單以防止它在動畫之前可見 */
+        height: 700px;
+    }
+    #menu-control:checked ~ header .menu-container {
+        opacity: 1; /* 選單打開時設置為不透明 */
+        visibility: visible; /* 使選單可見 */
+    }
+
+    header nav > .menu-container > ul {
+        list-style: none;
+        padding: 70px 0px 20px 40px;
+        margin: 0; /* Reset margin */
+        width: 100%;
+        overflow: auto;
+    }
+
+    header nav > .menu-container > ul > li {
+        width: 100%;
+        position: relative; /* Ensure submenu appears relative to the parent */
+        text-align: left;
+    }
+
+    header nav > .menu-container > ul > li > a {
+        width: 100%;
+        text-decoration: none;
+        color: #000000;
+        padding: 20px 0;
+        display: block;
+    }
+
+    header nav > .menu-container > ul > li > a > span {
+        font-family: 'Noto Sans TC';
+        font-size: 20px !important;
+    }
+
+    header .menu-container .menu header .menu-container .menu li a .img-box {
+        width: 20px; /* Adjusted width */
+        margin-right: 10px; /* Adjusted margin for spacing */
+    }
+
+    header > .menu-container > .menu li a .img-box img {
+        width: 100%;
+    }
+
+    .pc-submenu {
+        display: none;
+        position: static; /* Position relative to parent, and static for better animation handling */
+        background-color: #143159; /* Match the background color */
+        width: 100%;
+        z-index: 7;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+    }
+
+    .pc-submenu li {
+        width: 100%;
+    }
+
+    .pc-submenu li a {
+        padding: 10px 20px;
+        display: block;
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .menu-container ul.menu li.open .pc-submenu {
+        display: block;
+        max-height: 500px; /* 設置您希望的最大高度 */
+        opacity: 1;
+    }
+}
